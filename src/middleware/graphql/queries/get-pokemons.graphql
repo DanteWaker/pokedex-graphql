@@ -12,3 +12,27 @@ query GetPokemons($limit: Int, $offset: Int) {
     }
   }
 }
+
+query pokemon($name: String!) {
+  pokemon(name: $name) {
+    id
+    name
+    message
+    height
+    weight
+    sprites {
+      front_default
+    }
+    moves {
+      move {
+        name
+      }
+    }
+    types {
+      type {
+        name
+      }
+    }
+    weight
+  }
+}
