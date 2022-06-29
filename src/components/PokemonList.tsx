@@ -15,14 +15,17 @@ export function PokemonList() {
 
   return (
     <div className="grid grid-cols-6 justify-items-center gap-8 p-5">
-      {pokemons.map((pokemon) => (
-        <div className="flex w-40 flex-col rounded-xl border border-gray-200 bg-gray-500">
-          <img src={pokemon?.image} alt="" />
-          <h1 className="mb-5 text-center text-2xl capitalize">
-            {pokemon?.name}
-          </h1>
-        </div>
-      ))}
+      {pokemons.map(
+        (pokemon) =>
+          pokemon && (
+            <div className="flex w-40 flex-col rounded-xl border border-gray-200 bg-gray-500">
+              <img src={pokemon.image ? pokemon?.image : ''} alt="" />
+              <h1 className="mb-5 text-center text-2xl capitalize">
+                {pokemon.name}
+              </h1>
+            </div>
+          )
+      )}
     </div>
   );
 }
