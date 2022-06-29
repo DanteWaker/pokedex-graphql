@@ -1,7 +1,13 @@
 import { useState } from 'react';
 
+import { useGetPokemonsQuery } from './middleware/graphql/generated';
+
 function App() {
-  const [count, setCount] = useState(0);
+  const { data } = useGetPokemonsQuery({
+    variables: { limit: 2, offset: 1 },
+  });
+
+  console.log(data);
 
   return (
     <div className="App">
